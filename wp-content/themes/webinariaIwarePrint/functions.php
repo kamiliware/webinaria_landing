@@ -103,6 +103,171 @@ function monthTranslate($dateMonth): string
     return $dateMonth;
 }
 
+if( function_exists('acf_add_local_field_group') ):
+
+    acf_add_local_field_group(array(
+        'key' => 'group_6149d2efd4968',
+        'title' => 'Webinary',
+        'fields' => array(
+            array(
+                'key' => 'field_6149d35f29d55',
+                'label' => 'Data i godzina',
+                'name' => 'data_i_godzina',
+                'type' => 'date_time_picker',
+                'instructions' => 'Po klinknięciu pojawi się kalendarz wyboru dnia i godziny.',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '50',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'display_format' => 'Y-m-d H:i',
+                'return_format' => 'd-m-Y H:i',
+                'first_day' => 1,
+            ),
+            array(
+                'key' => 'field_6149db3f0dd59',
+                'label' => 'Bezpłatne',
+                'name' => 'bezplatne',
+                'type' => 'select',
+                'instructions' => 'Czy webinar jest bezpłatny?',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '20',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    'TAK' => 'TAK',
+                    'NIE' => 'NIE',
+                ),
+                'default_value' => 'TAK',
+                'allow_null' => 0,
+                'multiple' => 0,
+                'ui' => 0,
+                'return_format' => 'value',
+                'ajax' => 0,
+                'placeholder' => '',
+            ),
+            array(
+                'key' => 'field_6149dbaf0dd5a',
+                'label' => 'Koszt',
+                'name' => 'koszt',
+                'type' => 'number',
+                'instructions' => 'Ile wynosi opłata za wzięcie udziału.',
+                'required' => 1,
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_6149db3f0dd59',
+                            'operator' => '==',
+                            'value' => 'NIE',
+                        ),
+                    ),
+                ),
+                'wrapper' => array(
+                    'width' => '30',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => 'PLN',
+                'min' => 0,
+                'max' => 999,
+                'step' => '',
+            ),
+            array(
+                'key' => 'field_614c7cbdd4191',
+                'label' => 'Link do ClickMeeting',
+                'name' => 'link_do_clickmeeting',
+                'type' => 'text',
+                'instructions' => 'Z ClickMeeting należy wejść na szczegóły wydarzenia i wkleić tutaj "Adres URL wydarzenia"',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '50',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => 'Przykład: https://iwareprint.clickmeeting.com/przyklad',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ),
+            array(
+                'key' => 'field_6149d4c379d60',
+                'label' => 'Link do Calendly',
+                'name' => 'link_do_calendly',
+                'type' => 'text',
+                'instructions' => 'Link do zapisania się z Calendly',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '25',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => 'Link do calendly',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ),
+            array(
+                'key' => 'field_614c804816162',
+                'label' => 'ID YouTube Video',
+                'name' => 'id_youtube_video',
+                'type' => 'text',
+                'instructions' => 'ID zapisanego na YouTube webinaru',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '25',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => 'https://www.youtube.com/watch?v=',
+                'append' => '',
+                'maxlength' => '',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'webinars',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'acf_after_title',
+        'style' => 'seamless',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => array(
+            0 => 'permalink',
+            1 => 'the_content',
+            2 => 'discussion',
+            3 => 'comments',
+            4 => 'author',
+            5 => 'featured_image',
+            6 => 'tags',
+        ),
+        'active' => true,
+        'description' => '',
+    ));
+
+endif;
+
+
 add_action( 'init', function () {
     webinars_post_type();
 } );

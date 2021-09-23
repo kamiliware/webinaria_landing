@@ -77,9 +77,37 @@ get_header(); ?>
                                         <i class="fas fa-stopwatch text-cyan-dark fill-current text-4xl align-middle mr-2"></i> <span class="align-middle">Start: <?= $dateHour ?></span>
                                     </div>
                                 </div>
-                                <?php if ( !empty(get_field('link_do_calendly')) ): ?>
-                                    <a href="<?= get_field('link_do_calendly') ?>" target="_blank" class="button mt-8">Dołącz</a>
+                                <div class="wrapper">
+                                <?php if ( !empty(get_field('link_do_clickmeeting')) ): ?>
+                                    <a href="#" data-url="<?= get_field('link_do_clickmeeting') ?>" target="_blank" class="button mt-8 joinMeeting">Dołącz</a>
+                                    <script>
+                                        $('.joinMeeting').on('click', function(e) {
+                                            e.stopImmediatePropagation();
+                                            e.preventDefault();
+                                            let my_awesome_script = document.createElement('script');
+                                            my_awesome_script.setAttribute('src', $(this).attr('data-url'));
+                                            $('body').css('overflow', 'hidden');
+                                            $('.wrapper').css({
+                                                "position": "fixed",
+                                                "top": "0",
+                                                "right": "0",
+                                                "bottom": "0",
+                                                "left": "0",
+                                                "background": "rgba(0,0,0,.3)",
+                                                "z-index": "11",
+                                                "padding": "10vh 10vw"
+                                            })
+                                            $(this).parent().html('<div id="meetModal" style="max-height:640px" class="w-full h-full max-w-screen-sm bg-white m-auto overflow-hidden"></div>');
+                                            setTimeout(function() {
+                                                $('#meetModal').append(my_awesome_script);
+                                            }, 100)
+                                        })
+                                        $('.wrapper').on('click', function () {
+                                            location.reload();
+                                        })
+                                    </script>
                                 <?php endif; ?>
+                                </div>
                             </div>
                         </div>
 
@@ -130,6 +158,34 @@ get_header(); ?>
             </article>
         </div>
     </section>
+    <section class="bg-violet-light py-10">
+        <div class="pageContainer">
+        <header class="page-header text-center mb-8"><span class="text-cyan-dark text-2xl font-bold">Archiwalne webinary</span>
+            <h2 class="page-title text-white py-4 text-4xl font-black">Zobacz co Cię ominęło, lub obejrzyj ponownie</h2>
+        </header>
+        <?php $queryVideos = new WP_Query(
+                array(
+                    'post_type' => 'webinars',
+                    'meta_key' => 'id_youtube_video',
+                    'meta_value' => '',
+                    'meta_compare' => '!=',
+                    'order' => 'ASC'
+                )
+            );
+        foreach ($queryVideos->posts as $post): ?>
+            <div class="w-4/12 bg-violet-darker rounded-md">
+                <div class="thumbnail">
+                    <div class="youtube-player" data-id="<?php the_field('id_youtube_video'); ?>"></div>
+                </div>
+                <h5 class="p-8 text-white font-black font-xl"><?php the_title();?></h5>
+                <?php if (is_null(get_field('id_youtube_video'))): ?>
+                    Tutaj nie ma żadnego filmu
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+        <script src="<?= get_template_directory_uri(); ?>/assets/js/youtubeHandler.js"></script>
+    </section>
+
     <?php
     wp_reset_query(); //resetting the page query
 

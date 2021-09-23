@@ -121,6 +121,8 @@ if ($configExtra = getenv_docker('WORDPRESS_CONFIG_EXTRA', '')) {
 	eval($configExtra);
 }
 
+define( 'WP_DEFAULT_THEME', 'webinariaIwarePrint' );
+
 define( 'WP_ENVIRONMENT_TYPE', 'development' );
 // Enable WP_DEBUG mode
 define( 'WP_DEBUG', true );
