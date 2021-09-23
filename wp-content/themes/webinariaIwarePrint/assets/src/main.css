@@ -1,0 +1,71 @@
+
+
+.clearfix:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+body, input, textarea {
+    font-family: 'Lato', arial, sans-serif;
+}
+.button {
+    padding: 1rem 2rem;
+    display: inline-block;
+    min-width: 180px;
+    vertical-align: top;
+    font-size: 1rem;
+    font-weight: 900;
+    text-align: center;
+    background: #f8165d;
+    color: #fff;
+    transition: ease all 250ms;
+    position: relative;
+    border-radius: 4px;
+}
+.button.reverse {
+    border: 1px solid #f8165d;
+    background: #fff;
+    color: #f8165d
+}
+.button:before {
+    content: '';
+    background: rgba(0,0,0,.1);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: ease all 250ms;
+}
+
+.button:hover:before {
+    top: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .postTitle {
+        min-height: 104px;
+    }
+}
+.pageContainer {
+    max-width: 1200px;
+    padding: 1rem;
+    margin: 0 auto
+}
+@media screen and (min-width: 640px) {
+    .box:before {
+        content: '';
+        background: #f8165d;
+        position: absolute;
+        left: 1.5rem;
+        top: 50%;
+        margin-top: -0.5rem;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%
+    }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,36 @@
+[20-Sep-2021 13:26:07 UTC] PHP Notice:  Undefined variable: description in /var/www/html/wp-content/themes/webinariaIwarePrint/functions.php on line 17
+[20-Sep-2021 13:26:07 UTC] PHP Notice:  Undefined variable: location in /var/www/html/wp-content/themes/webinariaIwarePrint/functions.php on line 17
+[20-Sep-2021 13:26:07 UTC] PHP Notice:  Undefined variable: description in /var/www/html/wp-content/themes/webinariaIwarePrint/functions.php on line 17
+[20-Sep-2021 13:26:07 UTC] PHP Notice:  Undefined variable: location in /var/www/html/wp-content/themes/webinariaIwarePrint/functions.php on line 17
+[21-Sep-2021 11:09:57 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/wp-db.php on line 1653
+[21-Sep-2021 11:09:58 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/wp-db.php on line 1653
+[21-Sep-2021 11:09:59 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/wp-db.php on line 1653
+[21-Sep-2021 11:09:59 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/wp-db.php on line 1653
+[21-Sep-2021 11:09:59 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/wp-db.php on line 1653
+[21-Sep-2021 11:09:59 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/wp-db.php on line 1653
+[21-Sep-2021 11:10:00 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/wp-db.php on line 1653
+[21-Sep-2021 11:10:00 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/wp-db.php on line 1653
+[21-Sep-2021 11:10:00 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/wp-db.php on line 1653
+[21-Sep-2021 11:10:04 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/wp-db.php on line 1653
+[21-Sep-2021 11:10:04 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/wp-db.php on line 1653
+[21-Sep-2021 11:10:05 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/wp-db.php on line 1653
+[22-Sep-2021 11:25:55 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ';' in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 27
+[22-Sep-2021 11:56:47 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, string given in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 38
+[22-Sep-2021 11:59:25 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, string given in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 38
+[22-Sep-2021 12:00:41 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, string given in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 38
+[22-Sep-2021 12:01:12 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, string given in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 38
+[22-Sep-2021 12:06:06 UTC] PHP Warning:  strftime() expects parameter 1 to be string, object given in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 40
+[22-Sep-2021 12:06:49 UTC] PHP Warning:  strftime() expects parameter 2 to be int, string given in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 40
+[22-Sep-2021 12:07:11 UTC] PHP Warning:  strftime() expects parameter 2 to be int, string given in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 40
+[22-Sep-2021 12:19:07 UTC] PHP Warning:  strftime() expects parameter 2 to be int, object given in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 40
+[22-Sep-2021 12:19:34 UTC] PHP Warning:  strftime() expects parameter 2 to be int, object given in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 40
+[22-Sep-2021 12:20:31 UTC] PHP Warning:  strftime() expects parameter 2 to be int, object given in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 40
+[22-Sep-2021 12:20:32 UTC] PHP Warning:  strftime() expects parameter 2 to be int, object given in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 40
+[22-Sep-2021 12:21:25 UTC] PHP Warning:  strftime() expects parameter 2 to be int, object given in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 40
+[22-Sep-2021 12:23:20 UTC] PHP Fatal error:  Uncaught Error: Class 'IntlDateFormatter' not found in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php:40
+Stack trace:
+#0 /var/www/html/wp-includes/template-loader.php(106): include()
+#1 /var/www/html/wp-blog-header.php(19): require_once('/var/www/html/w...')
+#2 /var/www/html/index.php(17): require('/var/www/html/w...')
+#3 {main}
+  thrown in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 40

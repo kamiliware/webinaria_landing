@@ -1,0 +1,39 @@
+version: '3.1'
+
+services:
+
+  wordpress:
+    image: wordpress
+    ports:
+      - 80:80
+    environment:
+      WORDPRESS_DB_HOST: database
+      WORDPRESS_DB_USER: webinaria
+      WORDPRESS_DB_PASSWORD: '!IP#7531'
+      WORDPRESS_DB_NAME: webinariadb
+    links:
+      - database
+    volumes:
+      - ./..:/var/www/html:rw
+
+  database:
+    image: mariadb
+    environment:
+      MYSQL_DATABASE: webinariadb
+      MYSQL_USER: webinaria
+      MYSQL_PASSWORD: '!IP#7531'
+      MYSQL_ROOT_PASSWORD: '0p9o8i7u6y5t'
+    ports:
+      - "3306:3306"
+    volumes:
+      - database:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    ports:
+      - 6080:8080
+
+volumes:
+  wordpress:
+  database:
+  adminer:
