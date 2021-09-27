@@ -105,6 +105,407 @@ body, input, textarea {
     cursor: pointer;
 }
 
+#footer {
+    background: #000;
+    padding: 1rem;
+}
+
+#footer .col-lg-1 {
+    padding-left: 0;
+}
+
+#footer p {
+    font-size: 13px;
+    color: #999;
+    font-weight: 300;
+}
+
+#footer p span {
+    font-weight: 900;
+    display: block;
+    font-size: 1rem;
+}
+
+
+#footer .f-middle {
+    margin: 30px 0;
+}
+
+#footer .f-btn {
+    font-weight: 900;
+    color: #fff;
+    font-size: 14px;
+    background: #F21559;
+    border-radius: 5px;
+    padding: 15px 30px;
+    display: inline-block;
+}
+
+#footer .col-lg-3 .f-btn {
+    font-size: 14px;
+}
+
+#footer .grey-line {
+    border: 1px solid #333;
+    margin-top: 52px;
+}
+
+#footer h4 {
+    font-weight: 900;
+    color: #fff;
+    font-size: 16px;
+}
+
+#footer .button {
+    font-size: 14px;
+    font-weight: 900
+}
+
+#footer .f-socials, #footer .f-copy, #footer .f-links {
+    text-align: right;
+}
+
+#footer .f-socials a, #footer .f-links a {
+    display: inline-block;
+    padding-left: 15px;
+}
+
+#footer .f-socials a {
+    padding-left: 45px;
+    padding-bottom: 30px;
+}
+
+#footer .container-fluid, #footer .container-fluid .col-lg-6 {
+    margin: 30px 0 0;
+    padding: 15px 0 0;
+}
+
+#footer .container-fluid .row {
+    margin-left: -45px;
+    margin-right: -45px;
+}
+
+#footer .f-banners h5 {
+    font-size: 23px;
+    font-weight: 900;
+    padding: 30px;
+}
+
+#footer .left {
+    background: #E7F5FF;
+    margin: 0;
+}
+
+#footer .left h5 {
+    color: #180F4C;
+}
+
+#footer .left .f-left, #footer .left .f-right {
+    float: right;
+}
+
+#footer .left .f-left {
+    padding-right: 120px;
+}
+
+#footer .call {
+    margin: 35px 30px;
+}
+
+#footer .call p {
+    color: #180F4C;
+    font-size: 12px;
+    font-weight: 300;
+    padding: 5px 0 0 2px;
+}
+
+#footer .right {
+    background: #180F4C;
+}
+
+#footer .right .f-left, #footer .right .f-right {
+    float: left;
+}
+
+#footer .right h5 {
+    color: #fff;
+    padding-bottom: 5px;
+}
+
+#footer .right-call {
+    margin-top: 35px;
+}
+
+#footer .right p {
+    color: #fff;
+    font-size: 16px;
+    padding-left: 30px;
+}
+
+@media screen and (max-width: 769px) {
+    #footer .col-lg-1 img{
+        padding: 30px 0 30px 15px;
+    }
+    #footer .grey-line{
+        display: none;
+    }
+    #footer h4 {
+        padding-top: 20px;
+    }
+    #footer .f-socials, #footer .f-copy, #footer .f-links {
+        text-align: left;
+    }
+    #footer .f-socials {
+        padding-top: 30px;
+    }
+    #footer .f-socials a {
+        padding-left: 15px;
+    }
+    #footer .call {
+        margin-bottom: 0;
+    }
+    #footer .container-fluid .col-lg-6 {
+        margin-top: 0;
+        padding-top: 0;
+    }
+    #footer .right .f-right {
+        float: right;
+        margin: 0 15px 30px 0;
+    }
+}
+
+#newsletter {
+    padding: 20px;
+    text-align: center;
+    background-color: #180f4c;
+}
+
+#newsletter h4 {
+    font-size: 23px;
+    font-weight: 900;
+    color: #0099FE;
+}
+
+#newsletter h3 {
+    font-size: 58px;
+    color: #FFFFFF;
+    padding: 0 0 10px;
+    font-weight: 900;
+}
+
+#newsletter span.message_success {
+    color: #fff;
+}
+
+#newsletter .line {
+    width: 80px;
+}
+
+#newsletter form {
+    padding-top: 3rem;
+}
+
+.freshMailPopUp__body  {
+    max-width: 100%!important;
+}
+
+#newsletter input.field {
+    padding-left: 15px!important;
+}
+
+#newsletter form input {
+    background: #FFFFFF;
+    border: 1px solid #EEEEEE;
+    box-shadow: 0 4px 0 0 #E7E7E7;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+}
+
+#newsletter form button {
+    color: #FFFFFF!important;
+    padding: 20px;
+    font-size: 16px!important;
+    font-weight: 900!important;
+    background: transparent!important;
+    border: none;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 767px) {
+
+    #newsletter form {
+        margin: 0 auto;
+        display: block;
+        width: 600px;
+    }
+
+    #newsletter form label {
+        text-align: left;
+    }
+
+    #newsletter form input {
+        width: 600px;
+        position: absolute;
+        padding: 12px;
+    }
+
+    #newsletter form button {
+        color: #F21559!important;
+        position: relative;
+        bottom: 0;
+    }
+
+}
+
+ul.ubermenu-submenu.ubermenu-submenu-id-112.ubermenu-submenu-type-stack.ubermenu-submenu-indent {
+    padding-left: 0;
+}
+
+#post-134 p {
+    margin-bottom: 1rem;
+}
+
+/* bottom-contact */
+#bottom-contact {
+    z-index: 9999;
+}
+#bottom-contact .container-fluid, #bottom-contact .container-fluid .col-lg-4, #bottom-contact .container-fluid .col-lg-8 {
+    margin: 0;
+    padding: 0;
+}
+
+#bottom-contact .container-fluid .col-lg-4, #bottom-contact .container-fluid .col-lg-8 {
+    padding: 25px 0;
+}
+
+#bottom-contact .f-banners h5 {
+    font-size: 23px;
+    font-weight: 900;
+    padding-left: 40px;
+    padding-right: 30px;
+    margin: 0;
+}
+
+#bottom-contact .left {
+    background: #E7F5FF;
+    margin: 0;
+    display: flex;
+}
+
+#bottom-contact .left h5 {
+    color: #180F4C;
+}
+
+#bottom-contact .call, #bottom-contact .heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bottom-contact .call a {
+    margin-right: 30px;
+}
+
+#bottom-contact .right {
+    background: #180F4C;
+    display: flex;
+}
+
+#bottom-contact .right h5 {
+    color: #fff;
+    padding-left: 30px;
+}
+
+#bottom-contact .right-call {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bottom-contact .right-call a {
+    margin-right: 30px;
+}
+
+#bottom-contact .heading span {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+@media screen and (max-width: 769px) {
+
+    .form-submit input#submit {
+        width: 100%;
+    }
+    #footer .col-lg-1 img{
+        padding: 30px 0 30px 15px;
+    }
+    #footer .grey-line{
+        display: none;
+    }
+    #footer h4 {
+        padding-top: 20px;
+    }
+    #footer .f-banners {
+        display: none;
+    }
+    #footer .f-socials, #footer .f-copy, #footer .f-links {
+        text-align: left;
+    }
+    #footer .f-socials {
+        padding-top: 30px;
+    }
+    #footer .f-socials a {
+        padding-left: 15px;
+    }
+    #footer .call {
+        margin-bottom: 0;
+    }
+    #footer .container-fluid .col-lg-6 {
+        margin-top: 0;
+        padding-top: 0;
+    }
+    #footer .right .f-right {
+        float: right;
+        margin: 0 15px 30px 0;
+    }
+    .category-single {
+        width: 100%;
+    }
+    .content h1, #list-top h1 {
+        font-size: 4rem;
+    }
+    .thumbnail img {
+        height: auto;
+    }
+}
+
+#bottom-contact {
+    background-color: transparent; /* Black background color */
+    position: fixed; /* Make it stick/fixed */
+    bottom: 0; /* Stay on top */
+    width: 100%; /* Full width */
+    transition: bottom .7s; /* Transition effect when sliding down (and up) */
+    z-index: 9999;
+}
+
+#footer .f-btn, #bottom-contact .f-btn {
+    font-weight: 900;
+    color: #fff;
+    font-size: 14px;
+    background: #F21559;
+    border-radius: 5px;
+    padding: 15px 30px;
+    display: inline-block;
+}
+
+div.wpcf7-response-output {
+    text-align: center;
+    padding: 20px;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

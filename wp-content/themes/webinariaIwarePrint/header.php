@@ -29,20 +29,20 @@
 <body  <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-white min-h-screen overflow-hidden">
-    <header id="mainHeader" class="p-4 bg-white text-gray-800 absolute inset-x-0 top-0 dark:bg-gray-600 dark:text-white clearfix transition-all z-10 shadow-lg">
+    <header id="mainHeader" class="p-4 bg-white text-gray-800 md:absolute inset-x-0 top-0 dark:bg-gray-800 dark:text-white clearfix transition-all z-10 shadow-lg">
         <div class="pageContainer mx-auto px-4">
-            <a id="mainLogo" href="<?= esc_url(home_url('/')); ?>" class="inline-block transition-all dark:grayscale"><img src="<?= get_stylesheet_directory_uri(); ?>/assets/images/logo.png" alt="logo IwarePrint"></a>
-            <nav class="float-right">
-                <?php wp_nav_menu([
-                'menu'            => 'top',
-                'theme_location'  => 'top',
-                'menu_id'         => false,
-                'menu_class'      => 'menu',
-                'depth'           => 0,
-                ]); ?>
+            <a id="mainLogo" href="<?= esc_url(home_url('/')); ?>" class="md:inline-block block text-center transition-all dark:grayscale"><img src="<?= get_stylesheet_directory_uri(); ?>/assets/images/logo.png" alt="logo IwarePrint" class="inline"></a>
+            <nav class="md:float-right clearfix">
+<!--                --><?php //wp_nav_menu([
+//                'menu'            => 'top',
+//                'theme_location'  => 'top',
+//                'menu_id'         => false,
+//                'menu_class'      => 'menu',
+//                'depth'           => 0,
+//                ]); ?>
                 <ul>
-                    <li class="inline-block"><a class="px-4 py-4 block text-violet-dark transition-all hover:text-cyan" href="tel:533025708"><i class="fas fa-phone-volume text-cyan fill-current -rotate-45"></i> 533 025 708</a></li>
-                    <li class="inline-block"><a class="px-4 py-4 block text-violet-dark transition-all hover:text-cyan" href="mailto:bok@iwareprint.pl"><i class="fas fa-envelope text-cyan fill-current"></i> bok@iwareprint.pl</a></li>
+                    <li class="md:inline-block md:float-none float-left md:w-auto w-full transition-all dark:grayscale"><a class="md:p-4 py-4 px-0 block text-violet-dark transition-all hover:text-cyan dark:text-white" href="tel:533025708"><i class="fas fa-phone-volume text-cyan fill-current -rotate-45"></i> 533 025 708</a></li>
+                    <li class="md:inline-block md:float-none float-left md:w-auto w-full transition-all dark:grayscale"><a class="md:p-4 py-4 px-0 block text-violet-dark transition-all hover:text-cyan dark:text-white" href="mailto:bok@iwareprint.pl"><i class="fas fa-envelope text-cyan fill-current"></i> bok@iwareprint.pl</a></li>
                 </ul>
             </nav>
         </div>
@@ -52,23 +52,42 @@
         function load()
         {
             const mainHeader = $('#mainHeader');
+            const mainHeaderContainer = $('#mainHeader .pageContainer');
             let headerHeight = mainHeader.height();
             const adminBar = $('#wpadminbar');
-            if (adminBar.length) {
+            let windowWidth = $(window).innerWidth;
+            if (adminBar.length && windowWidth > 768) {
                 adminBar.css('top', 'calc(100% - 32px)');
                 $('html').attr('style', 'margin-top: 0!important');
             }
             if (mainHeader.length) {
-                $('#page').css('padding-top', headerHeight + 'px');
+                if(windowWidth > 768) {
+                    $('#page').css('padding-top', headerHeight + 'px');
+                } else {
+                    $('#page').css('padding-top', 0);
+                }
+                // $(window).on('resize', function() {
+                //     if(windowWidth > 768) {
+                //         $('#page').css('padding-top', headerHeight + 'px');
+                //     } else {
+                //         $('#page').css('padding-top', 0);
+                //     }
+                // })
             }
             let lastKnownScrollPosition = headerHeight;
             let ticking = false;
 
             function doSomething(scrollPos) {
-                if (scrollPos >= headerHeight / 2) {
-                    mainHeader.addClass('fixed').removeClass('absolute');
-                } else {
-                    mainHeader.addClass('absolute').removeClass('fixed');
+                if(windowWidth > 768) {
+                    if (scrollPos >= headerHeight / 2) {
+                        mainHeader.addClass('md:fixed p-1').removeClass('md:absolute p-4');
+                        mainHeaderContainer.addClass('py-1');
+                    } else {
+                        mainHeader.addClass('md:absolute p-4').removeClass('md:fixed p-1');
+                        if (mainHeaderContainer.hasClass('py-1')) {
+                            mainHeaderContainer.removeClass('py-1');
+                        }
+                    }
                 }
             }
 

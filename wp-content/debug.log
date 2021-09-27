@@ -34,3 +34,10 @@ Stack trace:
 #2 /var/www/html/index.php(17): require('/var/www/html/w...')
 #3 {main}
   thrown in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 40
+[27-Sep-2021 11:05:40 UTC] PHP Warning:  date() expects parameter 2 to be int, string given in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 36
+[27-Sep-2021 11:06:07 UTC] PHP Warning:  date() expects parameter 2 to be int, string given in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 36
+[27-Sep-2021 11:33:10 UTC] PHP Parse error:  syntax error, unexpected end of file in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 235
+[27-Sep-2021 11:38:58 UTC] PHP Parse error:  syntax error, unexpected 'endforeach' (T_ENDFOREACH) in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 134
+[27-Sep-2021 11:39:29 UTC] PHP Parse error:  syntax error, unexpected end of file in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 248
+[27-Sep-2021 11:39:33 UTC] PHP Parse error:  syntax error, unexpected end of file in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 248
+[27-Sep-2021 12:45:12 UTC] PHP Parse error:  syntax error, unexpected ')' in /var/www/html/wp-content/themes/webinariaIwarePrint/index.php on line 74
