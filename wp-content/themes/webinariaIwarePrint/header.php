@@ -54,12 +54,7 @@
             const mainHeader = $('#mainHeader');
             const mainHeaderContainer = $('#mainHeader .pageContainer');
             let headerHeight = mainHeader.height();
-            const adminBar = $('#wpadminbar');
             let windowWidth = $(window).innerWidth;
-            if (adminBar.length && windowWidth > 768) {
-                adminBar.css('top', 'calc(100% - 32px)');
-                $('html').attr('style', 'margin-top: 0!important');
-            }
             if (mainHeader.length) {
                 if(windowWidth > 768) {
                     $('#page').css('padding-top', headerHeight + 'px');

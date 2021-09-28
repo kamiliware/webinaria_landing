@@ -19,7 +19,7 @@ get_header(); ?>
         <div class="pageContainer">
             <header class="page-header text-center">
                 <span class="text-cyan-dark lg:text-2xl text-xl font-bold">Webinaria</span>
-                <h1 class="page-title text-white my-4 lg:text-6xl md:text-4xl text-2xl font-black"><?php the_title(); ?></h1>
+                <h1 class="page-title text-white my-4 lg:text-6xl md:text-5xl text-4xl font-black"><?php the_title(); ?></h1>
             </header><!-- .page-header -->
             <article class="lg:-mx-6 md:-mx-4 -mx-2 clearfix">
                 <?php
