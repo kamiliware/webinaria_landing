@@ -22,25 +22,32 @@ body, input, textarea {
     position: relative;
     border-radius: 4px;
 }
+.button:hover {
+    background: rgba(248, 43, 106, 0.9);
+}
 .button.reverse {
     border: 1px solid #f8165d;
     background: #fff;
     color: #f8165d
 }
-.button:before {
-    content: '';
-    background: rgba(0,0,0,.1);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: ease all 250ms;
+.button.reverse:hover {
+    color: #fff;
+    background: #f8165d;
 }
+/*.button:before {*/
+/*    content: '';*/
+/*    background: rgba(0,0,0,.1);*/
+/*    position: absolute;*/
+/*    top: 100%;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    transition: ease all 250ms;*/
+/*}*/
 
-.button:hover:before {
-    top: 0;
-}
+/*.button:hover:before {*/
+/*    top: 0;*/
+/*}*/
 
 @media screen and (min-width: 768px) {
     .postTitle {
@@ -501,7 +508,7 @@ div.wpcf7-response-output {
     padding: 20px;
 }
 
-/* ! tailwindcss v2.2.15 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v2.2.15 | MIT License | https://tailwindcss.com*/
 
 /*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
@@ -1411,13 +1418,17 @@ video {
         --tw-bg-opacity: 1;
         background-color: rgba(62, 62, 62, var(--tw-bg-opacity));
     }
-    .dark\:bg-gray-400 {
+    .dark\:bg-gray-200 {
         --tw-bg-opacity: 1;
-        background-color: rgba(131, 133, 137, var(--tw-bg-opacity));
+        background-color: rgba(171, 166, 193, var(--tw-bg-opacity));
     }
     .dark\:bg-gray-300 {
         --tw-bg-opacity: 1;
         background-color: rgba(152, 152, 152, var(--tw-bg-opacity));
+    }
+    .dark\:bg-gray-400 {
+        --tw-bg-opacity: 1;
+        background-color: rgba(131, 133, 137, var(--tw-bg-opacity));
     }
     .dark\:text-white {
         --tw-text-opacity: 1;

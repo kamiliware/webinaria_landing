@@ -22,25 +22,32 @@ body, input, textarea {
     position: relative;
     border-radius: 4px;
 }
+.button:hover {
+    background: rgba(248, 43, 106, 0.9);
+}
 .button.reverse {
     border: 1px solid #f8165d;
     background: #fff;
     color: #f8165d
 }
-.button:before {
-    content: '';
-    background: rgba(0,0,0,.1);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: ease all 250ms;
+.button.reverse:hover {
+    color: #fff;
+    background: #f8165d;
 }
+/*.button:before {*/
+/*    content: '';*/
+/*    background: rgba(0,0,0,.1);*/
+/*    position: absolute;*/
+/*    top: 100%;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    transition: ease all 250ms;*/
+/*}*/
 
-.button:hover:before {
-    top: 0;
-}
+/*.button:hover:before {*/
+/*    top: 0;*/
+/*}*/
 
 @media screen and (min-width: 768px) {
     .postTitle {

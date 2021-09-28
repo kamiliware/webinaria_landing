@@ -10,14 +10,14 @@ get_header(); ?>
         <div class="pageContainer">
             <header class="page-header text-center">
                 <span class="text-cyan-dark lg:text-2xl text-xl font-bold">Webinaria</span>
-                <h1 class="page-title text-white my-4 lg:text-6xl md:text-5xl text-4xl font-black"><?php the_title(); ?></h1>
+                <h1 class="page-title text-white my-4 lg:text-6xl md:text-5xl text-4xl font-black">Najbliższe webinary</h1>
             </header><!-- .page-header -->
             <article class="lg:-mx-6 md:-mx-4 -mx-2 clearfix">
                 <?php
                     $query = new WP_Query(
                             array(
                                 'showposts' => 2,
-                                'post_type' => 'webinars',
+                                'post_type' => array('webinars'),
                                 'orderby' => 'meta_value',
                                 'meta_key' => 'data_i_godzina',
                                 'order' => 'ASC',
@@ -38,7 +38,7 @@ get_header(); ?>
                     $dateHour = '';
                     setlocale( LC_ALL, $arrLocales );
                     if ($query->post_count == 0): ?>
-                        <p class="text-center text-xl text-white">Nie ma webinarów. Dodaj je z panelu administracyjnego</p>
+                        <p class="text-center text-xl text-white">Nie ma webinarów. Zapytaj o kolejne na bok@iwareprint.pl</p>
                     <?php else:
                     foreach ($query->posts as $post): ?>
                         <div class="lg:p-6 md:p-4 p-2 md:w-6/12 w-full inline-block align-top" style="margin-right: -4px">
@@ -61,25 +61,25 @@ get_header(); ?>
                                     <div class="lg:float-left text-cyan-dark font-black lg:text-2xl text-xl">
                                         <?php
                                             if ($calculateDaysLeft >= 1):
-                                                echo round($calculateDaysLeft) . ' dni do webinaru';
+                                                echo round($calculateDaysLeft) . ' dni do wydarzenia';
                                             elseif ($calculateDaysLeft >= 0):
                                                 if ($toHours >= 1) {
-                                                    echo round($toHours ) . ' godziny do webinaru';
+                                                    echo round($toHours ) . ' godziny do wydarzenia';
                                                 }
                                                 elseif ($toMinutes <= 45) {
-                                                    echo 'Webinar zakończony';
+                                                    echo 'Wydarzenie zakończone';
                                                 }
                                                 else {
                                                     if ($toMinutes >= 1) {
-                                                        echo round($toMinutes) . ' minut do webinaru';
+                                                        echo round($toMinutes) . ' minut do wydarzenia';
                                                     }
                                                     elseif ($toMinutes >= 0) {
-                                                        echo 'Webinar zaraz się rozpocznie';
+                                                        echo 'Wydarzenie zaraz się rozpocznie';
                                                     }
-                                                    echo 'Webinar w trakcie';
+                                                    echo 'Wydarzenie w trakcie';
                                                 }
                                             else:
-                                                echo 'Webinar zakończony';
+                                                echo 'Wydarzenie zakończone';
                                             endif;
                                         ?>
                                     </div>
@@ -145,16 +145,16 @@ get_header(); ?>
             </article>
         </div>
     </section>
-    <section class="bg-gray-100 dark:bg-gray-400 py-10">
+    <section class="bg-white dark:bg-gray-200 py-10">
         <div class="pageContainer">
-            <header class="page-header text-center"><span class="text-cyan text-2xl font-bold">Lista Webinarów</span>
+            <header class="page-header text-center"><span class="text-cyan text-2xl font-bold">Więcej webinarów</span>
                 <h2 class="page-title text-violet py-4 md:text-4xl text-3xl font-black dark:text-white">Wybierz inne webinary spośród listy</h2>
             </header>
             <article class="box-wrap lg:my-8 md:my-6 my-4 clearfix">
                 <?php
                 $queryMore = new WP_Query(
                     array(
-                        'post_type' => 'webinars',
+                        'post_type' => array('webinars'),
                         'orderby' => 'meta_value',
                         'meta_key' => 'data_i_godzina',
                         'order' => 'ASC',
@@ -209,9 +209,66 @@ get_header(); ?>
             </article>
         </div>
     </section>
+    <section class="bg-gray-100 dark:bg-gray-400 py-10">
+        <div class="pageContainer">
+            <header class="page-header text-center"><span class="text-cyan text-2xl font-bold">Lista Szkoleń</span>
+                <h2 class="page-title text-violet py-4 md:text-4xl text-3xl font-black dark:text-white">Naucz się obsługi swojej drukarni</h2>
+            </header>
+            <article class="box-wrap lg:my-8 md:my-6 my-4 clearfix">
+                <?php
+                $queryInstructions = new WP_Query(
+                    array(
+                        'post_type' => 'instructions',
+                        'orderby' => 'meta_value',
+                        'meta_key' => 'data_i_godzina',
+                        'order' => 'ASC',
+                    )
+                );
+                if ($queryInstructions->post_count == 0): ?>
+                    <p class="text-center text-md text-gray-800">Nie ma dodanych szkoleń</p>
+                <?php
+                else:
+                    foreach ($queryInstructions->posts as $post):
+                        $date = date_create(get_field('data_i_godzina'));
+                        $dateFormatted = date_format($date, "j M Y H:i");
+                        $dateMonth = date_format($date, "M");
+                        $dateMonth = monthTranslate($dateMonth);
+                        $your_date = strtotime($dateFormatted);
+                        $dateDiff = $your_date - $now;
+                        $calculateDaysLeft = ($dateDiff / 86400);
+                        $toHours = $dateDiff / 3600 - 2;
+                        $dateWorkaround = date_format($date, 'j') . ' ' . $dateMonth . ' ' . date_format($date, 'Y') ;
+                        $dateHour = date_format($date, 'H:i');
+                        ?>
+                        <div class="box relative bg-white dark:bg-gray-300 p-4 sm:pl-16 my-2 shadow-md rounded-md w-full">
+                            <div class="relative clearfix md:table w-full">
+                                <div class="postTitle align-left md:w-6/12 md:border-r md:border-solid md:border-gray-100 md:table-cell md:align-middle lg:py-4 md:py-3 py-2">
+                                    <h3 class="text-cyan dark:text-gray-100 font-black lg:text-3xl md:text-2xl text-xl inline-block"><?= $post->post_title; ?></h3>
+                                </div>
+                                <div class="md:w-2/12 sm:w-6/12 md:border-r md:border-solid md:float-none sm:float-left sm:border-gray-100
+                                             md:table-cell md:align-middle align-left lg:p-4 md:p-3 p-2">
+                                    <i class="fas fa-calendar-alt text-cyan dark:text-gray-100 fill-current text-2xl align-middle mr-2"></i>
+                                    <span class="text-black dark:text-white text-md align-middle"><?= $dateWorkaround ?></span>
+                                </div>
+                                <div class="md:w-4/12 sm:w-6/12 md:table-cell md:float-none sm:float-left md:align-middle align-center lg:p-4 md:p-3 p-2 last">
+                                    <i class="fas fa-stopwatch text-cyan dark:text-gray-100 fill-current text-2xl align-middle mr-2"></i>
+                                    <span class="text-black dark:text-white text-md align-middle"><?= $dateHour ?></span>
+                                    <?php if ( !empty(get_field('link_do_clickmeeting')) ): ?>
+                                        <a href="<?= get_field('link_do_clickmeeting') ?>" target="_blank" class="button reverse float-right -my-4">Rejestracja</a>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                    endforeach;
+                endif;
+                ?>
+            </article>
+        </div>
+    </section>
     <section class="bg-violet-light py-10">
         <div class="pageContainer">
-            <header class="page-header text-center mb-8"><span class="text-cyan-dark text-2xl font-bold">Archiwalne webinary</span>
+            <header class="page-header text-center mb-8"><span class="text-cyan-dark text-2xl font-bold">Archiwalne wydarzenia online</span>
                 <h2 class="page-title text-white py-4 md:text-4xl text-3xl font-black">Zobacz co Cię ominęło, lub obejrzyj ponownie</h2>
             </header>
             <article class="text-center">
@@ -225,14 +282,20 @@ get_header(); ?>
                         )
                     );
                 if ($queryVideos->post_count == 0): ?>
-                    <p class="text-center text-md text-white">Nie ma więcej webinarów</p>
+                    <p class="text-center text-md text-white">Nie ma archiwalnych wydarzeń</p>
                 <?php else:
-                foreach ($queryVideos->posts as $post): ?>
+                foreach ($queryVideos->posts as $post):
+                    $date = date_create(get_field('data_i_godzina'));
+                    $dateMonth = date_format($date, "M");
+                    $dateMonth = monthTranslate($dateMonth);
+                    $dateWorkaround = date_format($date, 'j') . ' ' . $dateMonth . ' ' . date_format($date, 'Y');
+                    ?>
+
                     <div class="lg:w-4/12 md:w-6/12 w-full max-w-xs bg-violet-darker rounded-md inline-block" style="margin-right: -4px">
                         <div class="thumbnail">
                             <div class="youtube-player" data-id="<?php the_field('id_youtube_video'); ?>"></div>
                         </div>
-                        <h5 class="p-8 text-white font-black font-xl"><?php the_title();?></h5>
+                        <h5 class="p-8 text-white font-black font-xl"><?php the_title();?> - <?= $dateWorkaround ?></h5>
                         <?php if (is_null(get_field('id_youtube_video'))): ?>
                             Tutaj nie ma żadnego filmu
                         <?php endif; ?>

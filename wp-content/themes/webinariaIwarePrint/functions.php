@@ -56,6 +56,25 @@ function webinars_post_type() {
             'show_in_rest' => true,
         ]
     );
+    register_post_type( 'instructions', [
+            'rewrite'      => [
+                'with_front' => false,
+                'has-archive' => false,
+                'slug'       => 'szkolenia',
+            ],
+            'has-archive' => false,
+            'hierarchical' => true,
+            'public'       => true,
+            'supports'     => [ 'title', 'editor', 'page-attributes', 'custom-fields' ],
+            'labels'       => [
+                'name' => 'Szkolenia',
+                'all_items' => 'Lista szkoleń',
+                'singular_name' => 'Szkolenie',
+                'add_new' => 'Dodaj szkolenie'
+            ],
+            'show_in_rest' => true,
+        ]
+    );
 }
 
 function monthTranslate($dateMonth): string
@@ -256,6 +275,13 @@ if( function_exists('acf_add_local_field_group') ):
                     'param' => 'post_type',
                     'operator' => '==',
                     'value' => 'webinars',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'instructions',
                 ),
             ),
         ),
