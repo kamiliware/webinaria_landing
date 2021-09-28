@@ -18,10 +18,10 @@ get_header(); ?>
     <section class="bg-violet-dark text-white py-10">
         <div class="pageContainer">
             <header class="page-header text-center">
-                <span class="text-cyan-dark text-2xl font-bold">Webinaria</span>
-                <h1 class="page-title text-white my-4 md:text-6xl text-4xl font-black"><?php the_title(); ?></h1>
+                <span class="text-cyan-dark lg:text-2xl text-xl font-bold">Webinaria</span>
+                <h1 class="page-title text-white my-4 lg:text-6xl md:text-4xl text-2xl font-black"><?php the_title(); ?></h1>
             </header><!-- .page-header -->
-            <article class="-mx-6 clearfix">
+            <article class="lg:-mx-6 md:-mx-4 -mx-2 clearfix">
                 <?php
                     $query = new WP_Query(
                             array(
@@ -50,9 +50,9 @@ get_header(); ?>
                         <p class="text-center text-xl text-white">Nie ma webinarów. Dodaj je z panelu administracyjnego</p>
                     <?php else:
                     foreach ($query->posts as $post): ?>
-                        <div class="p-6 md:w-6/12 w-full inline-block align-top" style="margin-right: -4px">
+                        <div class="lg:p-6 md:p-4 p-2 md:w-6/12 w-full inline-block align-top" style="margin-right: -4px">
                             <div class="bg-violet-darker rounded-lg p-10">
-                                <div class="mb-8 clearfix">
+                                <div class="lg:mb-8 md:mb-6 mb-4 clearfix">
                                     <?php
                                         $date = date_create(get_field('data_i_godzina'));
                                         $dateFormatted = date_format($date, "j M Y H:i");
@@ -62,18 +62,33 @@ get_header(); ?>
                                         $your_date = strtotime($dateFormatted);
                                         $dateDiff = $your_date - $now;
                                         $calculateDaysLeft = ($dateDiff / 86400);
-                                        $toHours = $dateDiff / 3600;
+                                        $toHours = $dateDiff / 3600 - 2;
+                                        $toMinutes = ($dateDiff / 3600 - 2) * 60;
                                         $dateWorkaround = date_format($date, 'j') . ' ' . $dateMonth . ' ' . date_format($date, 'Y') ;
                                         $dateHour = date_format($date, 'H:i');
                                     ?>
-                                    <div class="float-left text-cyan-dark font-black text-2xl">
+                                    <div class="lg:float-left text-cyan-dark font-black lg:text-2xl text-xl">
                                         <?php
                                             if ($calculateDaysLeft >= 1):
                                                 echo round($calculateDaysLeft) . ' dni do webinaru';
                                             elseif ($calculateDaysLeft >= 0):
-                                                echo round($toHours) . ' godziny do webinaru';
+                                                if ($toHours >= 1) {
+                                                    echo round($toHours ) . ' godziny do webinaru';
+                                                }
+                                                elseif ($toMinutes <= 45) {
+                                                    echo 'Webinar zakończony';
+                                                }
+                                                else {
+                                                    if ($toMinutes >= 1) {
+                                                        echo round($toMinutes) . ' minut do webinaru';
+                                                    }
+                                                    elseif ($toMinutes >= 0) {
+                                                        echo 'Webinar zaraz się rozpocznie';
+                                                    }
+                                                    echo 'Webinar w trakcie';
+                                                }
                                             else:
-                                                echo 'Zakończone';
+                                                echo 'Webinar zakończony';
                                             endif;
                                         ?>
                                     </div>
@@ -86,20 +101,20 @@ get_header(); ?>
                                             $fieldPayment = "Cena: $price PLN";
                                         endif;
                                     ?>
-                                    <div class="float-right text-gray-200 font-black text-md"><?= $fieldPayment ?></div>
+                                    <div class="lg:float-right text-gray-200 font-black text-md"><?= $fieldPayment ?></div>
                                 </div>
-                                <h2 class="text-white font-black md:text-4xl text-2xl md:mb-8 mb-4"><?= $post->post_title; ?></h2>
+                                <h2 class="text-white font-black lg:text-4xl md:text-3xl text-2xl lg:mb-8 md:mb-6 mb-4"><?= $post->post_title; ?></h2>
                                 <div class="clearfix">
-                                    <div class="text-gray-100 float-left pr-4 font-light text-2xl md:w-6/12 w-full">
-                                        <i class="fas fa-calendar-alt text-cyan-dark fill-current text-4xl align-middle mr-2"></i> <span class="align-middle"><?= $dateWorkaround ?></span>
+                                    <div class="text-gray-100 float-left lg:pr-4 md:pr-2 pr-0 font-light lg:text-2xl text-xl lg:w-6/12 w-full">
+                                        <i class="fas fa-calendar-alt text-cyan-dark fill-current lg:text-4xl text-2xl align-middle mr-2"></i> <span class="align-middle"><?= $dateWorkaround ?></span>
                                     </div>
-                                    <div class="text-gray-100 float-left pr-4 font-light text-2xl md:w-6/12 w-full">
-                                        <i class="fas fa-stopwatch text-cyan-dark fill-current text-4xl align-middle mr-2"></i> <span class="align-middle">Start: <?= $dateHour ?></span>
+                                    <div class="text-gray-100 float-left lg:pr-4 md:pr-2 pr-0 font-light lg:text-2xl text-xl lg:w-6/12 w-full">
+                                        <i class="fas fa-stopwatch text-cyan-dark fill-current lg:text-4xl text-2xl align-middle mr-2"></i> <span class="align-middle">Start: <?= $dateHour ?></span>
                                     </div>
                                 </div>
                                 <div class="wrapper">
                                 <?php if ( !empty(get_field('link_do_clickmeeting')) ): ?>
-                                    <a href="<?= get_field('link_do_clickmeeting') ?>" data-url="<?= get_field('link_do_clickmeeting') ?>" target="_blank" class="button mt-8 joinMeeting">Dołącz</a>
+                                    <a href="<?= get_field('link_do_clickmeeting') ?>" data-url="<?= get_field('link_do_clickmeeting') ?>" target="_blank" class="button mt-8 joinMeeting">Rejestracja</a>
 <!--                                    <script>-->
 <!--                                        $('.joinMeeting').on('click', function(e) {-->
 <!--                                            e.stopImmediatePropagation();-->
@@ -144,7 +159,7 @@ get_header(); ?>
             <header class="page-header text-center"><span class="text-cyan text-2xl font-bold">Lista Webinarów</span>
                 <h2 class="page-title text-violet py-4 md:text-4xl text-3xl font-black dark:text-white">Wybierz inne webinary spośród listy</h2>
             </header>
-            <article class="box-wrap my-8 clearfix">
+            <article class="box-wrap lg:my-8 md:my-6 my-4 clearfix">
                 <?php
                 $queryMore = new WP_Query(
                     array(
@@ -165,22 +180,33 @@ get_header(); ?>
                     <p class="text-center text-md text-gray-800">Nie ma więcej webinarów</p>
                 <?php
                     else:
-                        foreach ($queryMore->posts as $post): ?>
+                        foreach ($queryMore->posts as $post):
+                            $date = date_create(get_field('data_i_godzina'));
+                            $dateFormatted = date_format($date, "j M Y H:i");
+                            $dateMonth = date_format($date, "M");
+                            $dateMonth = monthTranslate($dateMonth);
+                            $your_date = strtotime($dateFormatted);
+                            $dateDiff = $your_date - $now;
+                            $calculateDaysLeft = ($dateDiff / 86400);
+                            $toHours = $dateDiff / 3600 - 2;
+                            $dateWorkaround = date_format($date, 'j') . ' ' . $dateMonth . ' ' . date_format($date, 'Y') ;
+                            $dateHour = date_format($date, 'H:i');
+                            ?>
                         <div class="box relative bg-white dark:bg-gray-300 p-4 sm:pl-16 my-2 shadow-md rounded-md w-full">
                             <div class="relative clearfix md:table w-full">
-                                <div class="postTitle align-left md:w-6/12 md:border-r md:border-solid md:border-gray-100 md:table-cell md:align-middle py-4">
-                                    <h3 class="text-cyan dark:text-gray-100 font-black md:text-3xl text-xl inline-block"><?= $post->post_title; ?></h3>
+                                <div class="postTitle align-left md:w-6/12 md:border-r md:border-solid md:border-gray-100 md:table-cell md:align-middle lg:py-4 md:py-3 py-2">
+                                    <h3 class="text-cyan dark:text-gray-100 font-black lg:text-3xl md:text-2xl text-xl inline-block"><?= $post->post_title; ?></h3>
                                 </div>
-                                <div class="md:w-2/12 sm:w-6/12 sm:border-r sm:border-solid sm:border-gray-100
-                                             md:table-cell md:align-middle md:inset-y-4 align-left p-4">
+                                <div class="md:w-2/12 sm:w-6/12 md:border-r md:border-solid md:float-none sm:float-left sm:border-gray-100
+                                             md:table-cell md:align-middle align-left lg:p-4 md:p-3 p-2">
                                     <i class="fas fa-calendar-alt text-cyan dark:text-gray-100 fill-current text-2xl align-middle mr-2"></i>
                                     <span class="text-black dark:text-white text-md align-middle"><?= $dateWorkaround ?></span>
                                 </div>
-                                <div class="md:w-4/12 sm:w-6/12 md:inset-y-4 md:table-cell md:align-middle align-center py-4 px-6">
+                                <div class="md:w-4/12 sm:w-6/12 md:table-cell md:float-none sm:float-left md:align-middle align-center lg:p-4 md:p-3 p-2 last">
                                     <i class="fas fa-stopwatch text-cyan dark:text-gray-100 fill-current text-2xl align-middle mr-2"></i>
                                     <span class="text-black dark:text-white text-md align-middle"><?= $dateHour ?></span>
                                     <?php if ( !empty(get_field('link_do_clickmeeting')) ): ?>
-                                        <a href="<?= get_field('link_do_clickmeeting') ?>" target="_blank" class="button reverse float-right -mt-4">Rejestracja</a>
+                                        <a href="<?= get_field('link_do_clickmeeting') ?>" target="_blank" class="button reverse float-right -my-4">Rejestracja</a>
                                     <?php endif; ?>
                                 </div>
                             </div>

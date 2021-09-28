@@ -135,7 +135,7 @@
     <div class="pageContainer-fluid f-banners lg:block hidden">
         <div class="row flex flex-wrap">
 
-            <div class="w-full md:p-4 p-2 lg:w-4/12 left">
+            <div class="w-full md:p-4 p-2 lg:w-4/12 md:w-6/12 left">
                 <div class="heading">
                     <h5>
                         Umów się na prezentację systemu
@@ -145,7 +145,7 @@
                     <a target="_blank" href="https://calendly.com/iware-print-sprzedaz/" class="button">Zarezerwuj</a>
                 </div>
             </div>
-            <div class="w-full md:p-4 p-2 lg:w-8/12 right">
+            <div class="w-full md:p-4 p-2 lg:w-8/12 md:w-6/12 right">
                 <div class="heading">
                     <h5>
                         Szybkie pytanie, szybka odpowiedź, szybki kontakt.<br>
